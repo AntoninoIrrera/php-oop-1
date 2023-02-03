@@ -27,7 +27,7 @@ require_once __DIR__ . '/db/db.php';
 
                 foreach($movieList as $element){
 
-                    $movie = new Movie($element["title"],$element["durata"],$element["genre"]);
+                    $movie = new Movie($element["title"],$element["durata"],$element["genre"],$element["img"]);
 
                     $movieObgect[] = $movie;
 
@@ -42,6 +42,7 @@ require_once __DIR__ . '/db/db.php';
                 <?php
                 foreach($movieObgect as $element){
                     echo "<ul>";
+                        echo "<li>" . "<img src='$element->immagine'" . "</li>"; 
                         echo "<li> <span>titolo:</span>" . $element->titolo . "</li>";
                         echo "<li> <span>durata:</span>" . $element->durata . " minuti" . ", " . $element->durata() . "</li>";
                         echo "<li> <span>genere:</span>";

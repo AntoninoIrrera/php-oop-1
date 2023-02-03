@@ -4,13 +4,15 @@
         public $titolo;
         public $durata;
         public $genere;
+        public $immagine;
 
 
-        function __construct($_titolo,$_durata,$_genere)
+        function __construct($_titolo,$_durata,$_genere,$_immagine)
         {
             $this->titolo = $_titolo;
             $this->durata = $_durata;
             $this->genere = $_genere;
+            $this->immagine = $_immagine;
         }
 
 
