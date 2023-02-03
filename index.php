@@ -2,6 +2,9 @@
 
 require_once __DIR__ . '/models/Movie.php';
 
+require_once __DIR__ . '/db/db.php';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -13,45 +16,46 @@ require_once __DIR__ . '/models/Movie.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OOP</title>
     <link rel="stylesheet" href="./style/style.css">
+
 </head>
 
 <body>
-    <?php
 
-    $ritornoAlFuturo = new Movie('ritorno al futuro', 150, ['fantasy', 'comico']);
-    $ritornoAlFuturo2 = new Movie('ritorno al futuro 2', 110, ['fantasy', 'comico', 'fantascientifico']);
+        <?php
 
-    ?>
-    <main>
-        <h2>Film:</h2>
-        <div>
-            <?php
-            echo "<ul>";
-            echo '<li> <span>titolo:</span> ' . $ritornoAlFuturo->titolo . '</li>';
-            echo '<li> <span>durata:</span> ' . $ritornoAlFuturo->durata . " minuti" . ", " . $ritornoAlFuturo->durata() . '</li>';
-            echo '<li> <span>genere:</span> ';
-            foreach ($ritornoAlFuturo->genere as $element) {
-                echo $element . " ";
-            }
-            echo '</li>';
-            echo '</ul>';
-            ?>
-        </div>
-        <div>
-            <?php
-            echo "<ul>";
-            echo '<li> <span>titolo:</span> ' .  $ritornoAlFuturo2->titolo . '</li>';
-            echo '<li> <span>durata:</span> ' . $ritornoAlFuturo2->durata . " minuti" . ", " . $ritornoAlFuturo2->durata() . '</li>';
-            echo '<li> <span>genere:</span> ';
-            foreach ($ritornoAlFuturo2->genere as $element) {
-                echo $element . " ";
-            }
-            echo '</li>';
-            echo '</ul>';
-            ?>
-        </div>
-    </main>
+                $movieObgect = [];
 
+                foreach($movieList as $element){
+
+                    $movie = new Movie($element["title"],$element["durata"],$element["genre"]);
+
+                    $movieObgect[] = $movie;
+
+                }
+                
+
+
+        ?>
+        <main>
+            <h2>Film:</h2>
+            
+                <?php
+                foreach($movieObgect as $element){
+                    echo "<ul>";
+                        echo "<li> <span>titolo:</span>" . $element->titolo . "</li>";
+                        echo "<li> <span>durata:</span>" . $element->durata . " minuti" . ", " . $element->durata() . "</li>";
+                        echo "<li> <span>genere:</span>";
+                        foreach($element->genere as $genere){
+                            echo $genere . " ";
+                        }
+                        echo "</li>";
+                    echo "</ul>";
+                }
+             
+                ?>
+            
+        </main>
+        
 </body>
 
 </html>
