@@ -14,7 +14,13 @@
         }
 
 
-        
+        public function durata(){
+            if($this->durata > 120){
+                return 'lungo';
+            }else{
+                return 'corto';
+            }
+        }
 
     }
 

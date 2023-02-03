@@ -17,8 +17,8 @@
 <body>
     <?php
 
-        $ritornoAlFuturo = new Movie('ritorno al futuro','2:30',['fantasy','comico']);
-        $ritornoAlFuturo2 = new Movie('ritorno al futuro 2', '2:15', ['fantasy', 'comico','fantascientifico']);
+        $ritornoAlFuturo = new Movie('ritorno al futuro',150,['fantasy','comico']);
+        $ritornoAlFuturo2 = new Movie('ritorno al futuro 2', 110, ['fantasy', 'comico','fantascientifico']);
 
     ?>
     <pre>
@@ -26,7 +26,7 @@
             echo "\n";
             echo 'titolo: ' . $ritornoAlFuturo->titolo;
             echo "\n";
-            echo 'durata: ' . $ritornoAlFuturo->durata;
+            echo 'durata: ' . $ritornoAlFuturo->durata . " minuti" . ", " . $ritornoAlFuturo->durata();
             echo "\n";
             echo 'genere: ';
             foreach($ritornoAlFuturo->genere as $element){
@@ -36,7 +36,7 @@
             echo "\n";
             echo 'titolo: ' .  $ritornoAlFuturo2->titolo;
             echo "\n";
-            echo 'durata: ' . $ritornoAlFuturo2->durata;
+            echo 'durata: ' . $ritornoAlFuturo2->durata . " minuti" . ", " . $ritornoAlFuturo2->durata();
             echo "\n";
             echo 'genere: ';
             foreach ($ritornoAlFuturo2->genere as $element) {
